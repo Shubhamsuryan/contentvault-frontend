@@ -1,0 +1,2 @@
+key_id,key_secret
+rzp_test_SLXaGmEtUvxcK9,Ekyk4zpJv1lC5Gv6ySWhOq13
