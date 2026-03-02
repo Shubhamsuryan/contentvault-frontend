@@ -1,67 +1,72 @@
-import { useEffect, useRef } from "react";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-
-gsap.registerPlugin(ScrollTrigger);
+import bundle1 from "../assets/bundle1.png";
+import bundle2 from "../assets/bundle2.png";
+import bundle3 from "../assets/bundle3.png";
 
 const PreviewSection = () => {
-  const sectionRef = useRef(null);
+  const modules = [
 
-  useEffect(() => {
-    const preview = sectionRef.current.querySelector(".preview-box");
-
-    gsap.fromTo(
-      preview,
-      { y: 80, opacity: 0 },
-      {
-        y: 0,
-        opacity: 1,
-        duration: 1.2,
-        ease: "power3.out",
-        scrollTrigger: {
-          trigger: sectionRef.current,
-          start: "top 75%",
-        },
-      }
-    );
     
-    gsap.to(preview, {
-  y: -30,
-  scrollTrigger: {
-    trigger: sectionRef.current,
-    start: "top bottom",
-    end: "bottom top",
-    scrub: true,
-  },
-});
-  }, []);
+    {
+      title: "Premium Animated High-Quality Videos Templates",
+      desc: "Ready-made animated video templates for intros, promos, ads and social media content. Fully customizable and easy to edit.",
+      worth: "₹8900",
+      image: bundle1,
+    },
+    {
+      title: "40+ Digital Business Courses",
+      desc: "Marketing, freelancing, ecommerce & AI content creation training courses.",
+      worth: "₹6600",
+      image: bundle2,
+    },
+    {
+      title: "25000+ Viral Reels Bundle",
+      desc: "High-quality ready-to-post reels for Instagram & YouTube growth.",
+      worth: "₹14000",
+      image: bundle3,
+    }
+  ];
 
   return (
-    <section ref={sectionRef} className="relative py-28 px-6">
-      
-      <div className="max-w-6xl mx-auto text-center mb-16">
-        <h2 className="text-3xl md:text-5xl font-bold">
-          Inside The Vault
+    <section className="bg-[#0B0B0F] py-20 text-white">
+      <div className="max-w-6xl mx-auto px-6">
+
+        <h2 className="text-3xl md:text-4xl font-bold text-center mb-6">
+          Everything Included Inside The <span className="text-[#FFD700]">Mega Bundle</span>
         </h2>
-        <p className="text-gray-400 mt-4">
-          Organized folders. Ready-to-use assets. Instant access.
-        </p>
-      </div>
+        <h6 className="text-xl md:text-xl font-bold text-center mb-16">
+         Total Bundle Worth ₹29,500+
+<span className="text-[#FFD700]">Today Only (₹499)</span>
+        </h6>
 
-      <div className="flex justify-center">
-        <div className="preview-box relative w-full max-w-4xl rounded-3xl overflow-hidden border border-white/10 backdrop-blur-xl bg-white/5 p-6 shadow-2xl">
+        <div className="space-y-10">
+          {modules.map((item, index) => (
+            <div
+              key={index}
+              className="bg-[#15151A] rounded-2xl p-8 grid md:grid-cols-2 gap-8 items-center hover:scale-[1.02] transition duration-300"
+            >
+              {/* Placeholder Image Box */}
+              <div className="h-56 bg-gradient-to-br from-gray-800 to-black rounded-xl flex items-center justify-center text-gray-500">
+                <img src={item.image} alt="Bundle 1" className="h-full w-full object-cover rounded-xl" />
+              </div>
 
-          {/* Glow Border */}
-          <div className="absolute inset-0 rounded-3xl border border-purple-500/20 pointer-events-none"></div>
+              <div>
+                <h3 className="text-2xl font-bold text-[#FFD700]">
+                  {item.title}
+                </h3>
 
-          {/* Mock Preview Content */}
-          <div className="bg-[#111827] rounded-2xl h-[300px] md:h-[450px] flex items-center justify-center text-gray-400">
-            Drive Folder Preview (Add screenshot later)
-          </div>
+                <p className="text-gray-400 mt-4">
+                  {item.desc}
+                </p>
 
+                <p className="mt-4 text-sm text-gray-500">
+                  Worth {item.worth} • Included in Bundle
+                </p>
+              </div>
+            </div>
+          ))}
         </div>
-      </div>
 
+      </div>
     </section>
   );
 };

@@ -1,70 +1,71 @@
-import { useEffect, useRef } from "react";
-import gsap from "gsap";
+import bundleImage from "../assets/bundle.png";
 
 const Hero = () => {
-  const heroRef = useRef(null);
-
-  useEffect(() => {
-    const elements = heroRef.current.querySelectorAll(".animate-item");
-
-    gsap.fromTo(
-      elements,
-      { y: 40, opacity: 0 },
-      { y: 0, opacity: 1, duration: 1, stagger: 0.2, ease: "power3.out" }
-    );
-  }, []);
+  const handleBuy = () => {
+    const section = document.getElementById("pricing");
+    if (section) {
+      section.scrollIntoView({ behavior: "smooth" });
+    }
+  };
 
   return (
-    <section
-      ref={heroRef}
-      className="relative min-h-screen flex items-center justify-center px-6"
-    >
-      
-      {/* Background Glow */}
-      <div className="absolute w-[500px] h-[500px] bg-purple-600/20 blur-[120px] rounded-full top-10 right-10"></div>
-<div className="absolute w-[300px] h-[300px] bg-blue-600/20 blur-[120px] rounded-full bottom-20 left-10"></div>
-<div className="absolute w-[400px] h-[400px] bg-purple-600/20 blur-[150px] rounded-full top-20 right-20"></div>
-      <div className="relative max-w-6xl mx-auto grid md:grid-cols-2 gap-16 items-center">
+    <section className="min-h-screen flex items-center bg-[#0B0B0F] text-white">
+      <div className="max-w-7xl mx-auto px-6 py-20 grid md:grid-cols-2 gap-12 items-center">
 
-        {/* Left Content */}
-        <div className="space-y-8 text-center md:text-left">
-          <h1 className="animate-item text-4xl md:text-6xl font-bold leading-tight">
-            Launch Your <br />
-            <span className="bg-gradient-to-r from-blue-500 to-purple-500 bg-clip-text text-transparent">
-              Content Business
-            </span>{" "}
-            Today.
+        {/* LEFT CONTENT */}
+        <div>
+          <h1 className="text-4xl md:text-6xl font-bold leading-tight">
+            Launch Your Digital Business With <span className="text-[#FFD700]">AI Digital Bundle</span>
           </h1>
 
-          <p className="animate-item text-gray-400 text-lg">
-            20,000+ Shorts • 1,000+ Long Videos • Commercial Resell Rights
+          <p className="mt-6 text-lg text-gray-300">
+            20,000+ Shorts • 1000+ Long Videos • Full Resell Rights • Lifetime Access
           </p>
 
-          <div className="animate-item space-y-4">
-            <div className="flex items-center gap-4 justify-center md:justify-start">
-              <span className="line-through text-gray-500 text-lg">
-                ₹1499
-              </span>
-              <span className="text-3xl font-bold text-white">
-                ₹599
-              </span>
-            </div>
+          <p className="mt-4 text-sm text-gray-400">
+            Built for Indian creators to grow consistent income from Instagram, YouTube, and TikTok.
+          </p>
 
-            <button className="bg-gradient-to-r from-blue-600 to-purple-600 hover:scale-105 active:scale-95 transition-all duration-300 px-10 py-4 rounded-2xl font-semibold shadow-lg hover:shadow-purple-500/30">
-              Get Instant Access
-            </button>
+          {/* PRICE BLOCK */}
+          <div className="mt-8 space-y-2">
+            <p className="text-gray-400 line-through text-2xl">₹1999</p>
+            <p className="text-4xl md:text-5xl font-bold text-[#FFD700]">₹599</p>
+            <p className="text-green-400 text-lg">
+              Extra ₹100 OFF with Promo → <span className="font-bold">Final ₹499</span>
+            </p>
+          </div>
+
+          {/* CTA BUTTON */}
+          <button
+            onClick={handleBuy}
+            className="mt-8 bg-[#FFD700] text-black font-bold px-10 py-4 rounded-xl hover:scale-105 transition duration-300 shadow-lg"
+          >
+            Get Instant Access – ₹499
+          </button>
+          <div className="flex flex-wrap justify-center gap-6 mt-6 text-sm text-gray-400">
+  <span>✔ Secure Razorpay Checkout</span>
+  <span>✔ Lifetime Access</span>
+  <span>✔ Instant Digital Delivery</span>
+  <span>✔ Trusted by 500+ Creators</span>
+</div>
+          <p className="text-sm text-gray-400 mt-4">
+            🔒 Secured by Razorpay (UPI/Card/Netbanking) • 📩 Instant Email Confirmation
+          </p>
+
+          <div className="mt-6 flex flex-wrap gap-3 text-xs text-gray-300">
+            <span className="px-3 py-1 rounded-full border border-white/20">19,000+ Digital Creators Joined</span>
+            <span className="px-3 py-1 rounded-full border border-white/20">India-Focused Growth Bundle</span>
           </div>
         </div>
 
-        {/* Right Preview */}
-        <div className="animate-item flex justify-center">
-  <div className="relative w-80 h-80 md:w-[420px] md:h-[420px] rounded-3xl bg-gradient-to-br from-blue-600 to-purple-600 shadow-2xl flex items-center justify-center floating">
-    <div className="absolute inset-0 rounded-3xl bg-black/20 backdrop-blur-md"></div>
-    <span className="relative text-xl font-semibold">
-      Vault Preview
-    </span>
-  </div>
-</div>
+        {/* RIGHT IMAGE */}
+        <div className="flex justify-center">
+          <img
+            src={bundleImage}
+            alt="AI Digital Bundle"
+            className="w-full max-w-md drop-shadow-2xl hover:scale-105 transition duration-500"
+          />
+        </div>
 
       </div>
     </section>

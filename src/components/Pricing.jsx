@@ -111,12 +111,18 @@ rzp.open();
 };
 
   return (
-    <section ref={sectionRef} className="relative py-32 px-6">
-      
+    <section id="pricing" ref={sectionRef} className="relative py-32 px-6">
+      <h2 className="text-3xl text-yellow-400 md:text-5xl font-bold text-center mt-20">
+          50000+ Digital Creators Joined
+        </h2>
+        <br />
       <div className="max-w-4xl mx-auto text-center mb-16">
         <h2 className="text-3xl md:text-5xl font-bold">
           Launch Offer
         </h2>
+        <p className="text-yellow-400 mt-4">
+          Launch Price Available For Limited Early Buyers
+        </p>
         <p className="text-gray-400 mt-4">
           One-Time Payment. Lifetime Access.
         </p>
@@ -186,8 +192,14 @@ rzp.open();
 >
   Unlock Access Now
 </button>
-
+<p className="text-sm text-gray-400 mt-4 text-center">
+  ✔ One-Time Payment &nbsp; • &nbsp;
+  ✔ Lifetime Access &nbsp; • &nbsp;
+  ✔ No Hidden Charges &nbsp; • &nbsp;
+  ✔ Secure Razorpay Checkout
+</p>
         </div>
+        
 
       </div>
 
