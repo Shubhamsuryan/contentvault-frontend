@@ -31,7 +31,7 @@ const Hero = () => {
             <p className="text-gray-400 line-through text-2xl">₹1999</p>
             <p className="text-4xl md:text-5xl font-bold text-[#FFD700]">₹599</p>
             <p className="text-green-400 text-lg">
-              Extra ₹100 OFF with Promo → <span className="font-bold">Final ₹499</span>
+              Extra ₹100 OFF with Promo 
             </p>
           </div>
 
@@ -42,18 +42,17 @@ const Hero = () => {
           >
             Get Instant Access – ₹499
           </button>
-          <div className="flex flex-wrap justify-center gap-6 mt-6 text-sm text-gray-400">
-  <span>✔ Secure Razorpay Checkout</span>
+          <div className="flex flex-wrap  gap-6 mt-6 text-sm text-gray-400">
   <span>✔ Lifetime Access</span>
   <span>✔ Instant Digital Delivery</span>
-  <span>✔ Trusted by 500+ Creators</span>
+  <span>✔ Trusted by 9000+ Creators</span>
 </div>
           <p className="text-sm text-gray-400 mt-4">
             🔒 Secured by Razorpay (UPI/Card/Netbanking) • 📩 Instant Email Confirmation
           </p>
 
           <div className="mt-6 flex flex-wrap gap-3 text-xs text-gray-300">
-            <span className="px-3 py-1 rounded-full border border-white/20">19,000+ Digital Creators Joined</span>
+            <span className="px-3 py-1 rounded-full border border-white/20">9,000+ Digital Creators Joined</span>
             <span className="px-3 py-1 rounded-full border border-white/20">India-Focused Growth Bundle</span>
           </div>
         </div>

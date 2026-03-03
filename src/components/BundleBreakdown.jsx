@@ -1,6 +1,6 @@
 const BundleBreakdown = () => {
   const items = [
-    "8,000+ Motivational Reels",
+    "18,000+ Copyright free Reels",
     "6,000+ Business & Finance Reels",
     "4,000+ AI & Tech Shorts",
     "5,000+ Editable Templates",
@@ -25,7 +25,7 @@ const BundleBreakdown = () => {
         </div>
 
         <p className="text-[#FFD700] font-bold text-xl mt-12">
-          Total Bundle Worth ₹35,000+ — Today Only ₹499
+          Total Bundle Worth ₹40,500+ — Today Only ₹599
         </p>
 
       </div>

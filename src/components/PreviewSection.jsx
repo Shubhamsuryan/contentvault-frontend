@@ -8,8 +8,8 @@ const PreviewSection = () => {
     
     {
       title: "Premium Animated High-Quality Videos Templates",
-      desc: "Ready-made animated video templates for intros, promos, ads and social media content. Fully customizable and easy to edit.",
-      worth: "₹8900",
+      desc: "Ready-made animated longform videos for YouTube, ads and social media content. Fully customizable and easy to edit. Copyright free unique vedios delivers to every new buyers, so no copyright occures.",
+      worth: "₹19,000",
       image: bundle1,
     },
     {
@@ -34,8 +34,8 @@ const PreviewSection = () => {
           Everything Included Inside The <span className="text-[#FFD700]">Mega Bundle</span>
         </h2>
         <h6 className="text-xl md:text-xl font-bold text-center mb-16">
-         Total Bundle Worth ₹29,500+
-<span className="text-[#FFD700]">Today Only (₹499)</span>
+         Total Bundle Worth ₹40,500+      
+<span className="text-[#FFD700]">     Today Only (₹599)</span>
         </h6>
 
         <div className="space-y-10">
