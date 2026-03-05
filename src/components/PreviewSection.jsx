@@ -1,6 +1,6 @@
 import bundle1 from "../assets/bundle1.png";
 import bundle2 from "../assets/bundle2.png";
-import bundle3 from "../assets/bundle3.png";
+import bundle3 from "../assets/Bundle3.png";
 
 const PreviewSection = () => {
   const modules = [
