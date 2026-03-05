@@ -78,6 +78,34 @@ return;
     name: "ContentVault Pro",
     description: "Mega Content Bundle Access",
     order_id: order.id,
+    config: {
+  display: {
+    blocks: {
+      upi: {
+        name: "Pay using UPI",
+        instruments: [
+          { method: "upi" }
+        ]
+      },
+      wallet: {
+        name: "Pay using Wallets",
+        instruments: [
+          { method: "wallet" }
+        ]
+      },
+      card: {
+        name: "Pay using Card",
+        instruments: [
+          { method: "card" }
+        ]
+      }
+    },
+    sequence: ["block.upi", "block.wallet", "block.card"],
+    preferences: {
+      show_default_blocks: false
+    }
+  }
+},
     handler: async function (response) {
   const verifyResponse = await fetch(`${import.meta.env.VITE_BACKEND_URL}/verify-payment`, {
     method: "POST",
