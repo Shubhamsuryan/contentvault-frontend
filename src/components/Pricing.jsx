@@ -91,6 +91,17 @@ return;
   const result = await verifyResponse.json();
 
   if (result.success) {
+
+    // 🔥 Meta Pixel Purchase Event
+    if (window.fbq) {
+      window.fbq("track", "Purchase", {
+        value: finalPrice,
+        currency: "INR",
+        content_name: "AI Digital Bundle",
+        content_ids: [response.razorpay_payment_id],
+      });
+    }
+
     window.location.href = `/success?email=${email}`;
   } else {
     alert("Payment verification failed");
