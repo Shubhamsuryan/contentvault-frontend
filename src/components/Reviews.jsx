@@ -4,46 +4,55 @@ const Reviews = () => {
       name: "Aman Sharma",
       role: "Digital Marketer",
       text: "The bundle is properly organized. Much better than random Telegram folders.",
+      rating: "★★★★★"
     },
     {
       name: "Riya Kapoor",
       role: "Instagram Page Owner",
       text: "I liked how everything is categorized. Saves a lot of time.",
+      rating: "★★★★☆"
     },
     {
       name: "Harsh Patel",
       role: "Freelancer",
       text: "Worth the price honestly. The templates alone are useful for client work.",
+      rating: "★★★★☆"
     },
     {
       name: "Sneha Verma",
       role: "Content Creator",
       text: "Got access quickly and download speed was smooth.",
+      rating: "★★★★★"
     },
     {
       name: "Aditya Mehta",
       role: "Student",
       text: "Good starting point if someone wants to try digital reselling.",
+      rating: "★★★★☆"
     },
     {
       name: "Neha Singh",
       role: "Small Business Owner",
       text: "The reels collection is huge. I didn’t expect this much data.",
+      rating: "★★★★★"
     },
     {
       name: "Kunal Jain",
       role: "Agency Beginner",
       text: "Helpful for quick content needs. Clean structure impressed me.",
+      rating: "★★★★☆"
     },
     {
       name: "Pooja Nair",
       role: "Freelance Designer",
       text: "Templates are practical and easy to edit.",
+      rating: "★★★★★"
     },
     {
       name: "Rahul Desai",
       role: "Side Hustler",
       text: "For ₹499, the value makes sense. No complaints so far.",
+      rating: "★★★★☆"
     },
   ];
 
@@ -71,7 +80,7 @@ const Reviews = () => {
                 </div>
               </div>
 
-              <p className="text-[#FFD700] text-sm mb-3">★★★★★</p>
+              <p className="text-[#FFD700] text-sm mb-3">{review.rating}</p>
 
               <p className="text-gray-400 text-sm">
                 {review.text}

@@ -26,8 +26,8 @@ const Home = () => {
       <PreviewSection />
       <StorySection />
         <BundleBreakdown />
-      <SamplePreview />
-      <DemoSection />
+      {/* <SamplePreview />
+      <DemoSection /> */}
       <Objections />
       <NotForEveryone />
       <Reviews />
