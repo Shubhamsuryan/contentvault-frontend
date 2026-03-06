@@ -1,3 +1,5 @@
+import Storyboard from "../assets/Storyboard.mp4";
+
 const DemoSection = () => {
   return (
     <section className="bg-[#0B0B0F] py-20 border-t border-gray-800 text-white text-center">
@@ -10,9 +12,9 @@ const DemoSection = () => {
         <div className="bg-[#15151A] p-4 rounded-xl">
           <video
             controls
-            className="w-full rounded-lg"
+            className="w-full rounded-lg "
           >
-            <source src="/demo.mp4" type="video/mp4" />
+            <source src={Storyboard} type="video/mp4" />
           </video>
         </div>
 

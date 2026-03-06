@@ -7,6 +7,8 @@ import Terms from "./pages/Terms";
 import RefundPolicy from "./pages/RefundPolicy";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import License from "./pages/License";
+import LivePurchase from "./components/LivePurchase";
+import Upsell from "./pages/Upsell";
 
 function App() {
   return (
@@ -20,7 +22,9 @@ function App() {
         <Route path="/refund-policy" element={<RefundPolicy />} />
         <Route path="/privacy-policy" element={<PrivacyPolicy />} />
         <Route path="/license" element={<License />} />
+        <Route path="/upsell" element={<Upsell />} />
       </Routes>
+      <LivePurchase />
     </BrowserRouter>
   );
 }

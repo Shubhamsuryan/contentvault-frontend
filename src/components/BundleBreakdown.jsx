@@ -1,6 +1,6 @@
 const BundleBreakdown = () => {
   const items = [
-    "18,000+ Copyright free Reels",
+    "2,00,000+ Copyright free Reels",
     "6,000+ Business & Finance Reels",
     "4,000+ AI & Tech Shorts",
     "5,000+ Editable Templates",

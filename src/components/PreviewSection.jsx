@@ -19,9 +19,9 @@ const PreviewSection = () => {
       image: bundle2,
     },
     {
-      title: "25000+ Viral Reels Bundle",
+      title: "2,00,000+ Viral Reels Bundle",
       desc: "High-quality ready-to-post reels for Instagram & YouTube growth.",
-      worth: "₹14000",
+      worth: "₹14,000",
       image: bundle3,
     }
   ];
@@ -35,7 +35,7 @@ const PreviewSection = () => {
         </h2>
         <h6 className="text-xl md:text-xl font-bold text-center mb-16">
          Total Bundle Worth ₹40,500+      
-<span className="text-[#FFD700]">     Today Only (₹599)</span>
+<span className="text-[#FFD700]">     Today Only (₹499)</span>
         </h6>
 
         <div className="space-y-10">

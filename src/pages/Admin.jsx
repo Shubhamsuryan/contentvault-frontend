@@ -127,8 +127,10 @@ const grantAccess = async (email) => {
             <thead>
               <tr className="bg-gray-900">
                 <th className="p-3 border border-gray-700">Email</th>
-                <th className="p-3 border border-gray-700">Payment ID</th>
+                <th className="p-3 border border-gray-700">Main Payment ID</th>
                 <th className="p-3 border border-gray-700">Order ID</th>
+                <th className="p-3 border border-gray-700">Upsell Purchased</th>
+                <th className="p-3 border border-gray-700">Upsell Payment Id</th>
                 <th className="p-3 border border-gray-700">Date</th>
                   <th className="p-3 border border-gray-700">Action</th>
               </tr>
@@ -143,6 +145,9 @@ const grantAccess = async (email) => {
   <td className="p-3 border border-gray-700">{buyer.email}</td>
   <td className="p-3 border border-gray-700">{buyer.paymentId}</td>
   <td className="p-3 border border-gray-700">{buyer.orderId}</td>
+   <td className="p-3 border border-gray-700">{buyer.upsellPurchased ? "Yes" : "No"}</td>
+   <td className="p-3 border border-gray-700">{buyer.upsellPaymentId}</td>
+   
   <td className="p-3 border border-gray-700">
     {new Date(buyer.date).toLocaleString()}
   </td>

@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import ViewerCounter from "./ViewerCounter";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -10,8 +11,8 @@ const Pricing = () => {
   const [discountApplied, setDiscountApplied] = useState(false);
 
   const originalPrice = 1499;
-  const salePrice = 599;
-  const finalPrice = discountApplied ? 499 : salePrice;
+  const salePrice = 499;
+  const finalPrice = discountApplied ? 449 : salePrice;
   const [email, setEmail] = useState("");
    const [modalMessage, setModalMessage] = useState("");
   
@@ -36,7 +37,7 @@ const Pricing = () => {
   }, []);
 
   const applyPromo = () => {
-    if (promo.trim().toUpperCase() === "START100") {
+    if (promo.trim().toUpperCase() === "START50") {
       setDiscountApplied(true);
     }
   };
@@ -130,7 +131,7 @@ return;
       });
     }
 
-    window.location.href = `/success?email=${email}`;
+    window.location.href = `/upsell?email=${email}`;
   } else {
     alert("Payment verification failed");
   }
@@ -152,7 +153,7 @@ rzp.open();
   return (
     <section id="pricing" ref={sectionRef} className="relative py-32 px-6">
       <h2 className="text-3xl text-yellow-400 md:text-5xl font-bold text-center mt-20">
-          50000+ Digital Creators Joined
+          11,000+ Digital Creators Joined
         </h2>
         <br />
       <div className="max-w-4xl mx-auto text-center mb-16">
@@ -195,7 +196,7 @@ rzp.open();
 </div>
           {!discountApplied && (
             <div className="text-sm text-purple-400">
-              Use code START100 for extra ₹100 off
+              Use code START50 for extra ₹50 off
             </div>
           )}
 
@@ -231,6 +232,10 @@ rzp.open();
 >
   Unlock Access Now
 </button>
+
+<ViewerCounter />
+<h2>⚡ 537 people purchased in last 24 hours</h2>
+<h2>⚡ Limited launch price available today</h2>
 <p className="text-sm text-gray-400 mt-4 text-center">
   ✔ One-Time Payment &nbsp; • &nbsp;
   ✔ Lifetime Access &nbsp; • &nbsp;
