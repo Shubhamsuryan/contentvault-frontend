@@ -14,7 +14,7 @@ const Pricing = () => {
 
   const originalPrice = 2999;
   const salePrice = 499;
-  const finalPrice = discountApplied ? 449 : salePrice;
+  const finalPrice = discountApplied ? 1 : salePrice;
   const [email, setEmail] = useState("");
    const [modalMessage, setModalMessage] = useState("");
   const [name, setName] = useState("");
@@ -91,7 +91,7 @@ if (!order.payment_session_id) {
 }
 
 const cashfree = Cashfree({
-  mode: "sandbox"
+  mode: "production"
 });
 
 cashfree.checkout({

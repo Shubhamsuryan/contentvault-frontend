@@ -52,7 +52,7 @@ const handleUpsellPayment = async () => {
   }
 
   const cashfree = Cashfree({
-    mode: "sandbox"
+    mode: "production"
   });
 
   cashfree.checkout({
