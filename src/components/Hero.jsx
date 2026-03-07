@@ -19,7 +19,7 @@ const Hero = () => {
           </h1>
 
           <p className="mt-6 text-lg text-gray-300">
-            20,000+ Shorts • 1000+ Long Videos • Full Resell Rights • Lifetime Access
+            2,00,000+ Shorts • 1000+ Long Videos • Full Resell Rights • Lifetime Access
           </p>
 
           <p className="mt-4 text-sm text-gray-400">

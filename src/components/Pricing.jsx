@@ -12,7 +12,7 @@ const Pricing = () => {
   const [promo, setPromo] = useState("");
   const [discountApplied, setDiscountApplied] = useState(false);
 
-  const originalPrice = 1499;
+  const originalPrice = 2999;
   const salePrice = 499;
   const finalPrice = discountApplied ? 449 : salePrice;
   const [email, setEmail] = useState("");
