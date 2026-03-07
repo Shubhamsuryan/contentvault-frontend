@@ -1,6 +1,6 @@
-import bundle1 from "../assets/bundle1.png";
-import bundle2 from "../assets/bundle2.png";
-import bundle3 from "../assets/Bundle3.png";
+import Library1 from "../assets/Library1.png";
+import Library2 from "../assets/Library2.png";
+import Library3 from "../assets/Library3.png";
 
 const PreviewSection = () => {
   const modules = [
@@ -10,19 +10,19 @@ const PreviewSection = () => {
       title: "Premium Animated High-Quality Videos Templates",
       desc: "Ready-made animated longform videos for YouTube, ads and social media content. Fully customizable and easy to edit. Copyright free unique vedios delivers to every new buyers, so no copyright occures.",
       worth: "₹19,000",
-      image: bundle1,
+      image: Library1,
     },
     {
       title: "40+ Digital Business Courses",
       desc: "Marketing, freelancing, ecommerce & AI content creation training courses.",
       worth: "₹6600",
-      image: bundle2,
+      image: Library2,
     },
     {
-      title: "2,00,000+ Viral Reels Bundle",
+      title: "2,00,000+ Viral Reels Library",
       desc: "High-quality ready-to-post reels for Instagram & YouTube growth.",
       worth: "₹14,000",
-      image: bundle3,
+      image: Library3,
     }
   ];
 
@@ -31,10 +31,10 @@ const PreviewSection = () => {
       <div className="max-w-6xl mx-auto px-6">
 
         <h2 className="text-3xl md:text-4xl font-bold text-center mb-6">
-          Everything Included Inside The <span className="text-[#FFD700]">Mega Bundle</span>
+          Everything Included Inside The <span className="text-[#FFD700]">Mega Library</span>
         </h2>
         <h6 className="text-xl md:text-xl font-bold text-center mb-16">
-         Total Bundle Worth ₹40,500+      
+         Total Library Worth ₹40,500+      
 <span className="text-[#FFD700]">     Today Only (₹499)</span>
         </h6>
 
@@ -46,7 +46,7 @@ const PreviewSection = () => {
             >
               {/* Placeholder Image Box */}
               <div className="h-56 bg-gradient-to-br from-gray-800 to-black rounded-xl flex items-center justify-center text-gray-500">
-                <img src={item.image} alt="Bundle 1" className="h-full w-full object-cover rounded-xl" />
+                <img src={item.image} alt="Library 1" className="h-full w-full object-cover rounded-xl" />
               </div>
 
               <div>
@@ -59,7 +59,7 @@ const PreviewSection = () => {
                 </p>
 
                 <p className="mt-4 text-sm text-gray-500">
-                  Worth {item.worth} • Included in Bundle
+                  Worth {item.worth} • Included in Library
                 </p>
               </div>
             </div>

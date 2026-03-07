@@ -26,6 +26,10 @@ const Upsell = () => {
       name: "ContentVault Pro",
       description: "Upsell - 50+ Premium Courses",
       order_id: order.id,
+      image: logo,
+          prefill: {
+          email: email
+        },
       config: {
   display: {
     blocks: {
@@ -110,7 +114,7 @@ const Upsell = () => {
 </p>
 
   <h2 className="text-3xl font-bold mb-4 text-yellow-400">
-    Exclusive Creator Courses Bundle
+    Exclusive Creator Courses Library
   </h2>
 
   <p className="text-gray-400 mb-6">

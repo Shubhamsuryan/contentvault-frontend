@@ -2,6 +2,7 @@ import { useState, useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import ViewerCounter from "./ViewerCounter";
+import logo from "../assets/logo.png";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -60,7 +61,7 @@ const checkResponse = await fetch(
 const checkData = await checkResponse.json();
 
 if (checkData.exists) {
-  setModalMessage("You have already purchased this bundle. Please check your email for access details.");
+  setModalMessage("You have already purchased this Library. Please check your email for access details.");
 return;
 }
   // Create order from backend
@@ -77,8 +78,12 @@ return;
     amount: order.amount,
     currency: "INR",
     name: "ContentVault Pro",
-    description: "Mega Content Bundle Access",
+    description: "Mega Content Library Access",
     order_id: order.id,
+    image: logo,
+    prefill: {
+    email: email
+  },
     config: {
   display: {
     blocks: {
@@ -126,7 +131,7 @@ return;
       window.fbq("track", "Purchase", {
         value: finalPrice,
         currency: "INR",
-        content_name: "AI Digital Bundle",
+        content_name: "AI Digital Library",
         content_ids: [response.razorpay_payment_id],
       });
     }

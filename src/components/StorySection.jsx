@@ -8,7 +8,7 @@ const StorySection = () => {
         </h2>
 
         <p className="text-gray-400 leading-relaxed mb-6">
-          We saw creators wasting weeks downloading random bundles from different
+          We saw creators wasting weeks downloading random Librarys from different
           sources — unorganized, incomplete, and often low quality.
         </p>
 

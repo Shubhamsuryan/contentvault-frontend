@@ -1,4 +1,4 @@
-import bundleImage from "../assets/bundle.png";
+import LibraryImage from "../assets/Library.png";
 
 const Hero = () => {
   const handleBuy = () => {
@@ -15,7 +15,7 @@ const Hero = () => {
         {/* LEFT CONTENT */}
         <div>
           <h1 className="text-4xl md:text-6xl font-bold leading-tight">
-            Launch Your Digital Business With <span className="text-[#FFD700]">AI Digital Bundle</span>
+            Launch Your Digital Business With <span className="text-[#FFD700]">AI Digital Library</span>
           </h1>
 
           <p className="mt-6 text-lg text-gray-300">
@@ -53,15 +53,15 @@ const Hero = () => {
 
           <div className="mt-6 flex flex-wrap gap-3 text-xs text-gray-300">
             <span className="px-3 py-1 rounded-full border border-white/20">9,000+ Digital Creators Joined</span>
-            <span className="px-3 py-1 rounded-full border border-white/20">India-Focused Growth Bundle</span>
+            <span className="px-3 py-1 rounded-full border border-white/20">India-Focused Growth Library</span>
           </div>
         </div>
 
         {/* RIGHT IMAGE */}
         <div className="flex justify-center">
           <img
-            src={bundleImage}
-            alt="AI Digital Bundle"
+            src={LibraryImage}
+            alt="AI Digital Library"
             className="w-full max-w-md drop-shadow-2xl hover:scale-105 transition duration-500"
           />
         </div>

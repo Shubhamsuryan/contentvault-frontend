@@ -15,7 +15,7 @@ const License = () => {
         <p className="text-gray-400">
           Upon purchase, ContentVault Pro grants you a non-exclusive, 
           non-transferable license to use and resell the individual 
-          digital assets included in the bundle.
+          digital assets included in the Library.
         </p>
 
         <h2 className="font-semibold mt-8 mb-3">2. What You Are Allowed To Do</h2>
@@ -27,10 +27,10 @@ const License = () => {
 
         <h2 className="font-semibold mt-8 mb-3">3. What You Are NOT Allowed To Do</h2>
         <ul className="text-gray-400 list-disc ml-6 mt-2 space-y-1">
-          <li>Resell or redistribute the entire bundle as a single package.</li>
+          <li>Resell or redistribute the entire Library as a single package.</li>
           <li>Share the Google Drive access with others.</li>
-          <li>Claim ownership of the original bundle.</li>
-          <li>Upload the full bundle to public platforms for free distribution.</li>
+          <li>Claim ownership of the original Library.</li>
+          <li>Upload the full Library to public platforms for free distribution.</li>
         </ul>
 
         <h2 className="font-semibold mt-8 mb-3">4. Violations</h2>

@@ -10,7 +10,7 @@ import SocialProof from "../components/SocialProof";
 import SamplePreview from "../components/SamplePreview";
 import Reviews from "../components/Reviews";
 import AfterPayment from "../components/AfterPayment";
-import BundleBreakdown from "../components/BundleBreakdown";
+import LibraryBreakdown from "../components/LibraryBreakdown";
 import DemoSection from "../components/DemoSection";
 import Objections from "../components/Objections";
 import NotForEveryone from "../components/NotForEveryone";
@@ -25,7 +25,7 @@ const Home = () => {
       <SocialProof />
       <PreviewSection />
       <StorySection />
-        <BundleBreakdown />
+        <LibraryBreakdown />
       {/* <SamplePreview />*/}
       <DemoSection /> 
       <Objections />

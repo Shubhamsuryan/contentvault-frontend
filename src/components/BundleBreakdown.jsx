@@ -1,4 +1,4 @@
-const BundleBreakdown = () => {
+const LibraryBreakdown = () => {
   const items = [
     "2,00,000+ Copyright free Reels",
     "6,000+ Business & Finance Reels",
@@ -25,7 +25,7 @@ const BundleBreakdown = () => {
         </div>
 
         <p className="text-[#FFD700] font-bold text-xl mt-12">
-          Total Bundle Worth ₹40,500+ — Today Only ₹599
+          Total Library Worth ₹40,500+ — Today Only ₹599
         </p>
 
       </div>
@@ -33,4 +33,4 @@ const BundleBreakdown = () => {
   );
 };
 
-export default BundleBreakdown;
+export default LibraryBreakdown;

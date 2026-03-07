@@ -148,7 +148,7 @@ const LivePurchase = () => {
           </p>
 
           <p className="text-xs text-gray-400">
-            just purchased the bundle
+            just purchased the Library
           </p>
         </div>
       </div>

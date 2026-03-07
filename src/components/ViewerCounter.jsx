@@ -27,7 +27,7 @@ const ViewerCounter = () => {
     <div className="text-center mt-4">
 
       <p className="text-orange-400 text-sm font-semibold animate-pulse">
-        🔥 {viewers} creators are viewing this bundle right now
+        🔥 {viewers} creators are viewing this Library right now
       </p>
 
     </div>

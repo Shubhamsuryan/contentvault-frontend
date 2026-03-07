@@ -23,8 +23,8 @@ const Terms = () => {
 
         <h2 className="font-semibold mt-8 mb-3">3. License & Usage</h2>
         <p className="text-gray-400">
-          Upon purchase, you are granted a non-exclusive license to use and resell the digital assets included in the bundle, subject to our License Agreement.
-          Redistribution of the complete bundle as-is is prohibited.
+          Upon purchase, you are granted a non-exclusive license to use and resell the digital assets included in the Library, subject to our License Agreement.
+          Redistribution of the complete Library as-is is prohibited.
         </p>
 
         <h2 className="font-semibold mt-8 mb-3">4. Payment</h2>
@@ -39,7 +39,7 @@ const Terms = () => {
 
         <h2 className="font-semibold mt-8 mb-3">6. Intellectual Property</h2>
         <p className="text-gray-400">
-          All content within the bundle remains protected by applicable intellectual property laws. Unauthorized redistribution or resale of the entire bundle is strictly prohibited.
+          All content within the Library remains protected by applicable intellectual property laws. Unauthorized redistribution or resale of the entire Library is strictly prohibited.
         </p>
 
         <h2 className="font-semibold mt-8 mb-3">7. Limitation of Liability</h2>

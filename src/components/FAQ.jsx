@@ -13,7 +13,7 @@ const faqs = [
   {
     question: "Is this a one-time payment?",
     answer:
-      "Yes. This is a lifetime access bundle with a single one-time payment."
+      "Yes. This is a lifetime access Library with a single one-time payment."
   },
   {
     question: "How do I get access after purchase?",

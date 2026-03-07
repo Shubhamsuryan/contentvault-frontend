@@ -3,7 +3,7 @@ const Reviews = () => {
     {
       name: "Aman Sharma",
       role: "Digital Marketer",
-      text: "The bundle is properly organized. Much better than random Telegram folders.",
+      text: "The Library is properly organized. Much better than random Telegram folders.",
       rating: "★★★★★"
     },
     {

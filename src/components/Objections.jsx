@@ -3,7 +3,7 @@ const Objections = () => {
     {
       question: "Is this legal to use and resell?",
       answer:
-        "Yes. You are granted resell rights for individual assets included in the bundle, as defined in our License Agreement.",
+        "Yes. You are granted resell rights for individual assets included in the Library, as defined in our License Agreement.",
     },
     {
       question: "Will I face copyright issues?",
@@ -13,12 +13,12 @@ const Objections = () => {
     {
       question: "Is this beginner friendly?",
       answer:
-        "Yes. The bundle is organized in structured folders, making it easy even for first-time users.",
+        "Yes. The Library is organized in structured folders, making it easy even for first-time users.",
     },
     {
       question: "Is ₹499 really worth it?",
       answer:
-        "The total bundle value exceeds ₹35,000+. Even selling a few assets can recover your investment.",
+        "The total Library value exceeds ₹35,000+. Even selling a few assets can recover your investment.",
     },
   ];
 
