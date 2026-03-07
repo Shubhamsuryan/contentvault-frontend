@@ -4,6 +4,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import ViewerCounter from "./ViewerCounter";
 import logo from "../assets/logo.png";
 
+
 gsap.registerPlugin(ScrollTrigger);
 
 const Pricing = () => {
@@ -16,7 +17,9 @@ const Pricing = () => {
   const finalPrice = discountApplied ? 449 : salePrice;
   const [email, setEmail] = useState("");
    const [modalMessage, setModalMessage] = useState("");
-  
+  const [name, setName] = useState("");
+const [phone, setPhone] = useState("");
+const [city, setCity] = useState("");
 
   useEffect(() => {
     const card = sectionRef.current.querySelector(".pricing-card");
@@ -65,94 +68,118 @@ if (checkData.exists) {
 return;
 }
   // Create order from backend
-  const orderResponse = await fetch(`${import.meta.env.VITE_BACKEND_URL}/create-order`, {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ amount: finalPrice }),
-  });
-
-  const order = await orderResponse.json();
-
-  const options = {
-    key: import.meta.env.VITE_RAZORPAY_KEY,
-    amount: order.amount,
-    currency: "INR",
-    name: "ContentVault Pro",
-    description: "Mega Content Library Access",
-    order_id: order.id,
-    image: logo,
-    prefill: {
-    email: email
-  },
-    config: {
-  display: {
-    blocks: {
-      upi: {
-        name: "Pay using UPI",
-        instruments: [
-          { method: "upi" }
-        ]
-      },
-      wallet: {
-        name: "Pay using Wallets",
-        instruments: [
-          { method: "wallet" }
-        ]
-      },
-      card: {
-        name: "Pay using Card",
-        instruments: [
-          { method: "card" }
-        ]
-      }
-    },
-    sequence: ["block.upi", "block.wallet", "block.card"],
-    preferences: {
-      show_default_blocks: false
-    }
-  }
-},
-    handler: async function (response) {
-  const verifyResponse = await fetch(`${import.meta.env.VITE_BACKEND_URL}/verify-payment`, {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({
-      ...response,
-      email: email,
-    }),
-  });
-
-  const result = await verifyResponse.json();
-
-  if (result.success) {
-
-    // 🔥 Meta Pixel Purchase Event
-    if (window.fbq) {
-      window.fbq("track", "Purchase", {
-        value: finalPrice,
-        currency: "INR",
-        content_name: "AI Digital Library",
-        content_ids: [response.razorpay_payment_id],
-      });
-    }
-
-    window.location.href = `/upsell?email=${email}`;
-  } else {
-    alert("Payment verification failed");
-  }
-},
-    theme: {
-      color: "#7C3AED",
-    },
-  };
-
-const rzp = new window.Razorpay(options);
-
-rzp.on("payment.failed", function () {
-  window.location.href = "/failed";
+const orderResponse = await fetch(`${import.meta.env.VITE_BACKEND_URL}/create-order`, {
+  method: "POST",
+  headers: { "Content-Type": "application/json" },
+  body: JSON.stringify({
+  amount: finalPrice,
+  email,
+  name,
+  phone,
+  city,
+  isUpsell: false
+})
 });
 
-rzp.open();
+const order = await orderResponse.json();
+
+console.log(order); // debugging
+
+if (!order.payment_session_id) {
+  alert("Payment initialization failed");
+  return;
+}
+
+const cashfree = Cashfree({
+  mode: "sandbox"
+});
+
+cashfree.checkout({
+  paymentSessionId: order.payment_session_id,
+  redirectTarget: "_self"
+});
+
+//   const options = {
+
+//     key: import.meta.env.VITE_RAZORPAY_KEY,
+//     amount: order.amount,
+//     currency: "INR",
+//     name: "ContentVault Pro",
+//     description: "Mega Content Library Access",
+//     order_id: order.id,
+//     image: logo,
+//     prefill: {
+//     email: email
+//   },
+//     config: {
+//   display: {
+//     blocks: {
+//       upi: {
+//         name: "Pay using UPI",
+//         instruments: [
+//           { method: "upi" }
+//         ]
+//       },
+//       wallet: {
+//         name: "Pay using Wallets",
+//         instruments: [
+//           { method: "wallet" }
+//         ]
+//       },
+//       card: {
+//         name: "Pay using Card",
+//         instruments: [
+//           { method: "card" }
+//         ]
+//       }
+//     },
+//     sequence: ["block.upi", "block.wallet", "block.card"],
+//     preferences: {
+//       show_default_blocks: false
+//     }
+//   }
+// },
+//     handler: async function (response) {
+//   const verifyResponse = await fetch(`${import.meta.env.VITE_BACKEND_URL}/verify-payment`, {
+//     method: "POST",
+//     headers: { "Content-Type": "application/json" },
+//     body: JSON.stringify({
+//       ...response,
+//       email: email,
+//     }),
+//   });
+
+//   const result = await verifyResponse.json();
+
+//   if (result.success) {
+
+//     // 🔥 Meta Pixel Purchase Event
+//     if (window.fbq) {
+//       window.fbq("track", "Purchase", {
+//         value: finalPrice,
+//         currency: "INR",
+//         content_name: "AI Digital Library",
+//         content_ids: [response.razorpay_payment_id],
+//       });
+//     }
+
+//     window.location.href = `/upsell?email=${email}`;
+//   } else {
+//     alert("Payment verification failed");
+//   }
+// },
+//     theme: {
+//       color: "#7C3AED",
+//     },
+//   };
+
+// const rzp = new window.Razorpay(options);
+
+// rzp.on("payment.failed", function () {
+//   window.location.href = "/failed";
+// });
+
+// rzp.open();
 };
 
   return (
@@ -190,14 +217,38 @@ rzp.open();
             ₹{finalPrice}
           </div>
           <div className="mt-4">
-  <input
-    type="email"
-    required
-    placeholder="Enter your email"
-    value={email}
-    onChange={(e) => setEmail(e.target.value)}
-    className="w-full bg-black/30 border border-white/10 rounded-xl px-4 py-3 text-white outline-none focus:border-purple-500"
-  />
+            <input
+  type="text"
+  placeholder="Enter your name"
+  value={name}
+  onChange={(e) => setName(e.target.value)}
+  className="w-full bg-black/30 border border-white/10 rounded-xl px-4 py-3 text-white"
+/>
+
+<input
+  type="tel"
+  placeholder="Enter your phone"
+  value={phone}
+  onChange={(e) => setPhone(e.target.value)}
+  className="w-full bg-black/30 border border-white/10 rounded-xl px-4 py-3 text-white focus:border-purple-500"
+/>
+
+<input
+  type="text"
+  placeholder="Enter your city"
+  value={city}
+  onChange={(e) => setCity(e.target.value)}
+  className="w-full bg-black/30 border border-white/10 rounded-xl px-4 py-3 text-white focus:border-purple-500"
+/>
+
+<input
+  type="email"
+  placeholder="Enter your email"
+  value={email}
+  onChange={(e) => setEmail(e.target.value)}
+  className="w-full bg-black/30 border border-white/10 rounded-xl px-4 py-3 text-white focus:border-purple-500"
+/>
+  
 </div>
           {!discountApplied && (
             <div className="text-sm text-purple-400">
@@ -245,7 +296,7 @@ rzp.open();
   ✔ One-Time Payment &nbsp; • &nbsp;
   ✔ Lifetime Access &nbsp; • &nbsp;
   ✔ No Hidden Charges &nbsp; • &nbsp;
-  ✔ Secure Razorpay Checkout
+  ✔ Secure Payment Gateway
 </p>
         </div>
         

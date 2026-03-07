@@ -1,100 +1,66 @@
 import { useSearchParams } from "react-router-dom";
+import { useEffect } from "react";
 
 const Upsell = () => {
+
   const [params] = useSearchParams();
-  const email = params.get("email");
-
+  
+const orderId = params.get("order_id");
   const upsellPrice = 149;
+ const email = params.get("email");
+const name = params.get("name");
+const phone = params.get("phone");
+const city = params.get("city");
 
-  const handleUpsellPayment = async () => {
+useEffect(() => {
 
-    const orderResponse = await fetch(
-      `${import.meta.env.VITE_BACKEND_URL}/create-order`,
-      {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ amount: upsellPrice }),
-      }
-    );
+  if (!orderId) return;
 
-    const order = await orderResponse.json();
+  fetch(
+    `${import.meta.env.VITE_BACKEND_URL}/verify-payment?order_id=${orderId}&email=${email}`
+  )
+  .then(res => res.json())
+  .then(data => {
+    console.log("Main payment verified:", data);
+  });
 
-    const options = {
-      key: import.meta.env.VITE_RAZORPAY_KEY,
-      amount: order.amount,
-      currency: "INR",
-      name: "ContentVault Pro",
-      description: "Upsell - 50+ Premium Courses",
-      order_id: order.id,
-      image: logo,
-          prefill: {
-          email: email
-        },
-      config: {
-  display: {
-    blocks: {
-      upi: {
-        name: "Pay using UPI",
-        instruments: [
-          { method: "upi" }
-        ]
-      },
-      wallet: {
-        name: "Pay using Wallets",
-        instruments: [
-          { method: "wallet" }
-        ]
-      },
-      card: {
-        name: "Pay using Card",
-        instruments: [
-          { method: "card" }
-        ]
-      }
-    },
-    sequence: ["block.upi", "block.wallet", "block.card"],
-    preferences: {
-      show_default_blocks: false
+}, []);
+
+const handleUpsellPayment = async () => {
+
+  const orderResponse = await fetch(
+    `${import.meta.env.VITE_BACKEND_URL}/create-order`,
+    {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+  amount: 149,
+  email,
+  name,
+  phone,
+  city,
+  isUpsell: true
+})
     }
+  );
+
+  const order = await orderResponse.json();
+
+  if (!order.payment_session_id) {
+    alert("Payment initialization failed");
+    return;
   }
-},
 
-      handler: async function (response) {
+  const cashfree = Cashfree({
+    mode: "sandbox"
+  });
 
-        const verifyResponse = await fetch(
-          `${import.meta.env.VITE_BACKEND_URL}/verify-upsell`,
-          {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({
-              ...response,
-              email: email,
-            }),
-          }
-        );
+  cashfree.checkout({
+    paymentSessionId: order.payment_session_id,
+    redirectTarget: "_self"
+  });
 
-        const result = await verifyResponse.json();
-
-        if (result.success) {
-          window.location.href = `/success?email=${email}`;
-        } else {
-          alert("Upsell payment verification failed");
-        }
-      },
-
-      theme: {
-        color: "#7C3AED",
-      },
-    };
-
-    const rzp = new window.Razorpay(options);
-
-    rzp.on("payment.failed", function () {
-      alert("Payment failed");
-    });
-
-    rzp.open();
-  };
+};
 
   const skipUpsell = () => {
     window.location.href = `/success?email=${email}`;
