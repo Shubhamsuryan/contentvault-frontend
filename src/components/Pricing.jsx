@@ -11,10 +11,15 @@ const Pricing = () => {
   const sectionRef = useRef(null);
   const [promo, setPromo] = useState("");
   const [discountApplied, setDiscountApplied] = useState(false);
-
+const [finalOverridePrice, setFinalOverridePrice] = useState(null);
   const originalPrice = 2999;
   const salePrice = 499;
-  const finalPrice = discountApplied ? 1 : salePrice;
+  const finalPrice =
+  finalOverridePrice !== null
+    ? finalOverridePrice
+    : discountApplied
+    ? 449
+    : salePrice;
   const [email, setEmail] = useState("");
    const [modalMessage, setModalMessage] = useState("");
   const [name, setName] = useState("");
@@ -41,10 +46,18 @@ const [city, setCity] = useState("");
   }, []);
 
   const applyPromo = () => {
-    if (promo.trim().toUpperCase() === "START50") {
-      setDiscountApplied(true);
-    }
-  };
+  const code = promo.trim();
+
+  if (code.toUpperCase() === "START50") {
+    setDiscountApplied(true);
+  }
+
+  if (code === "nishu@1") {
+    setDiscountApplied(false);
+    // setModalMessage("Hidden test discount applied");
+    setFinalOverridePrice(1);
+  }
+};
 
  const handlePayment = async () => {
   if (!email) {

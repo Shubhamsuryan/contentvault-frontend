@@ -17,7 +17,7 @@ useEffect(() => {
   if (!orderId) return;
 
   fetch(
-    `${import.meta.env.VITE_BACKEND_URL}/verify-payment?order_id=${orderId}&email=${email}`
+    `${import.meta.env.VITE_BACKEND_URL}/verify-payment?order_id=${orderId}&email=${email}&city=${city}`
   )
   .then(res => res.json())
   .then(data => {
