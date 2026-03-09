@@ -22,11 +22,12 @@ const [finalOverridePrice, setFinalOverridePrice] = useState(null);
     : salePrice;
   const [email, setEmail] = useState("");
    const [modalMessage, setModalMessage] = useState("");
-  const [name, setName] = useState("");
+  // const [name, setName] = useState("");
 const [phone, setPhone] = useState("");
-const [city, setCity] = useState("");
+// const [city, setCity] = useState("");
   const [isLoading, setIsLoading] = useState(false);
-  const [errors, setErrors] = useState({ name: "", phone: "", city: "", email: "" });
+  // const [errors, setErrors] = useState({ name: "", phone: "", city: "", email: "" });
+  const [errors, setErrors] = useState({ phone: "", email: "" });
 
   useEffect(() => {
     const card = sectionRef.current.querySelector(".pricing-card");
@@ -62,11 +63,12 @@ const [city, setCity] = useState("");
 };
 
   const validateInputs = (setStateErrors = false) => {
-    const newErrors = { name: "", phone: "", city: "", email: "" };
+    // const newErrors = { name: "", phone: "", city: "", email: "" };
+    const newErrors = { phone: "", email: "" };
 
-    if (!name || name.trim().length < 2) {
-      newErrors.name = "Please enter your name (at least 2 characters).";
-    }
+    // if (!name || name.trim().length < 2) {
+    //   newErrors.name = "Please enter your name (at least 2 characters).";
+    // }
 
     const phoneDigits = phone ? phone.replace(/\D/g, "") : "";
     if (!phoneDigits) {
@@ -75,9 +77,9 @@ const [city, setCity] = useState("");
       newErrors.phone = "Phone must be exactly 10 digits.";
     }
 
-    if (!city || city.trim().length === 0) {
-      newErrors.city = "Please enter your city.";
-    }
+    // if (!city || city.trim().length === 0) {
+    //   newErrors.city = "Please enter your city.";
+    // }
 
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!email || email.trim().length === 0) {
@@ -86,7 +88,8 @@ const [city, setCity] = useState("");
       newErrors.email = "Please enter a valid email address.";
     }
 
-    const isValid = !newErrors.name && !newErrors.phone && !newErrors.city && !newErrors.email;
+    // const isValid = !newErrors.name && !newErrors.phone && !newErrors.city && !newErrors.email;
+    const isValid = !newErrors.phone && !newErrors.email;
 
     if (setStateErrors) setErrors(newErrors);
 
@@ -128,9 +131,9 @@ const [city, setCity] = useState("");
       body: JSON.stringify({
         amount: finalPrice,
         email,
-        name,
+        // name,
         phone,
-        city,
+        // city,
         isUpsell: false,
       }),
     });
@@ -284,7 +287,7 @@ const [city, setCity] = useState("");
             ₹{finalPrice}
           </div>
           <div className="mt-4">
-            <input
+            {/* <input
   type="text"
   placeholder="Enter your name"
   value={name}
@@ -294,7 +297,7 @@ const [city, setCity] = useState("");
   }}
   className="w-full bg-black/30 border border-white/10 rounded-xl px-4 py-3 text-white"
 />
-{errors.name && <p className="text-red-400 text-sm mt-2">{errors.name}</p>}
+{errors.name && <p className="text-red-400 text-sm mt-2">{errors.name}</p>} */}
 
 <input
   type="tel"
@@ -308,7 +311,7 @@ const [city, setCity] = useState("");
 />
 {errors.phone && <p className="text-red-400 text-sm mt-2">{errors.phone}</p>}
 
-<input
+{/* <input
   type="text"
   placeholder="Enter your city"
   value={city}
@@ -318,7 +321,7 @@ const [city, setCity] = useState("");
   }}
   className="w-full bg-black/30 border border-white/10 rounded-xl px-4 py-3 text-white focus:border-purple-500"
 />
-{errors.city && <p className="text-red-400 text-sm mt-2">{errors.city}</p>}
+{errors.city && <p className="text-red-400 text-sm mt-2">{errors.city}</p>} */}
 
 <input
   type="email"
@@ -333,7 +336,7 @@ const [city, setCity] = useState("");
 {errors.email && <p className="text-red-400 text-sm mt-2">{errors.email}</p>}
   
 </div>
-          {/* {!discountApplied && (
+          {!discountApplied && (
             <div className="text-sm text-purple-400">
               (Optional) have you a promocode to apply? Enter above and click Apply.
             </div>
@@ -362,7 +365,7 @@ const [city, setCity] = useState("");
                 Apply
               </button>
             </div>
-          )} */}
+          )}
 
           {/* CTA Button */}
           <button

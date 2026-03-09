@@ -8,16 +8,17 @@ const Upsell = () => {
 const orderId = params.get("order_id");
   const upsellPrice = 149;
  const email = params.get("email");
-const name = params.get("name");
+// const name = params.get("name");
 const phone = params.get("phone");
-const city = params.get("city");
+// const city = params.get("city");
 
 useEffect(() => {
 
   if (!orderId) return;
 
   fetch(
-    `${import.meta.env.VITE_BACKEND_URL}/verify-payment?order_id=${orderId}&email=${email}&city=${city}`
+    // `${import.meta.env.VITE_BACKEND_URL}/verify-payment?order_id=${orderId}&email=${email}&city=${city}`
+    `${import.meta.env.VITE_BACKEND_URL}/verify-payment?order_id=${orderId}&email=${email}`
   )
   .then(res => res.json())
   .then(data => {
@@ -36,9 +37,9 @@ const handleUpsellPayment = async () => {
       body: JSON.stringify({
   amount: 149,
   email,
-  name,
+  // name,
   phone,
-  city,
+  // city,
   isUpsell: true
 })
     }
