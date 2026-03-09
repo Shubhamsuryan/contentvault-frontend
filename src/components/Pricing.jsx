@@ -263,7 +263,7 @@ cashfree.checkout({
 />
   
 </div>
-          {!discountApplied && (
+          {/* {!discountApplied && (
             <div className="text-sm text-purple-400">
               (Optional) have you a promocode to apply? Enter above and click Apply.
             </div>
@@ -275,7 +275,7 @@ cashfree.checkout({
             </div>
           )}
 
-          {/* Promo Input */}
+         
           {!discountApplied && (
             <div className="flex gap-3 justify-center mt-4">
               <input
@@ -292,7 +292,7 @@ cashfree.checkout({
                 Apply
               </button>
             </div>
-          )}
+          )} */}
 
           {/* CTA Button */}
           <button
