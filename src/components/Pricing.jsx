@@ -333,7 +333,7 @@ const [city, setCity] = useState("");
 {errors.email && <p className="text-red-400 text-sm mt-2">{errors.email}</p>}
   
 </div>
-          {!discountApplied && (
+          {/* {!discountApplied && (
             <div className="text-sm text-purple-400">
               (Optional) have you a promocode to apply? Enter above and click Apply.
             </div>
@@ -362,7 +362,7 @@ const [city, setCity] = useState("");
                 Apply
               </button>
             </div>
-          )}
+          )} */}
 
           {/* CTA Button */}
           <button
