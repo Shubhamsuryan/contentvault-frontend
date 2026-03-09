@@ -7,7 +7,7 @@ const PreviewSection = () => {
 
     
     {
-      title: "Premium Animated High-Quality Videos Templates",
+      title: "2000+ Premium Animated High-Quality Videos, Templates",
       desc: "Ready-made animated longform videos for YouTube, ads and social media content. Fully customizable and easy to edit. Copyright free unique vedios delivers to every new buyers, so no copyright occures.",
       worth: "₹19,000",
       image: Library1,

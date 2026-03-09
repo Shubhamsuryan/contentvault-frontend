@@ -43,7 +43,7 @@ const Home = () => {
     }
     className="bg-[#FFD700] text-black font-bold px-6 py-3 rounded-xl shadow-lg hover:scale-105 transition"
   >
-    Get Access – ₹499
+    Get Access – ₹199
   </button>
 </div>
     </div>

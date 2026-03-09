@@ -5,6 +5,9 @@ const SocialProof = () => {
         11,000+ Digital Creators Joined
       </h3>
       <p className="text-gray-400 mt-3">
+       4.8 ⭐ average rating from creators
+      </p>
+      <p className="text-gray-400 mt-3">
         Early buyers are already reselling and scaling their pages.
       </p>
     </section>

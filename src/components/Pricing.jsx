@@ -12,13 +12,13 @@ const Pricing = () => {
   const [promo, setPromo] = useState("");
   const [discountApplied, setDiscountApplied] = useState(false);
 const [finalOverridePrice, setFinalOverridePrice] = useState(null);
-  const originalPrice = 2999;
-  const salePrice = 499;
+  const originalPrice = 8999;
+  const salePrice = 199;
   const finalPrice =
   finalOverridePrice !== null
     ? finalOverridePrice
     : discountApplied
-    ? 449
+    ? 199
     : salePrice;
   const [email, setEmail] = useState("");
    const [modalMessage, setModalMessage] = useState("");
@@ -265,7 +265,7 @@ cashfree.checkout({
 </div>
           {!discountApplied && (
             <div className="text-sm text-purple-400">
-              Use code START50 for extra ₹50 off
+              (Optional) have you a promocode to apply? Enter above and click Apply.
             </div>
           )}
 

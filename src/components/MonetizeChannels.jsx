@@ -20,8 +20,15 @@ const MonetizeChannels = () => {
         <h2 className="text-3xl md:text-4xl font-bold text-center mb-4">
           Monetize Your Channels With <span className="text-[#FFD700]">Consistency</span>
         </h2>
-        <p className="text-gray-400 text-center max-w-3xl mx-auto mb-14">
+        <p className="text-gray-400 text-center max-w-3xl mx-auto ">
           Build a repeatable posting system across Instagram, YouTube, and TikTok so each week moves you closer to stable income.
+        </p>
+        <p className="text-red-400 text-center max-w-3xl mx-auto mb-14">
+          🔥 Launch Offer Ending Soon <br />
+Join 11,000+ creators who already downloaded the vault.
+<br />
+
+⏳ Offer expires in 24 hours
         </p>
 
         <div className="grid md:grid-cols-3 gap-8">
