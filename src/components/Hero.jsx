@@ -15,7 +15,7 @@ const Hero = () => {
         {/* LEFT CONTENT */}
         <div>
           <h1 className="text-4xl md:text-6xl font-bold leading-tight">
-            2,00,000+ Shorts  1000+ Long Videos <span className="text-[#FFD700]">Full Resell Rights </span> Lifetime Access
+            2,00,000+ Shorts,  1000+ Long Videos <span className="text-yellow-400">Ready to Upload & Grow Your Channel</span> Lifetime Access
           </h1>
 
           {/* <p className="mt-6 text-lg text-gray-300">
@@ -28,20 +28,18 @@ const Hero = () => {
 
           {/* PRICE BLOCK */}
           <div className="mt-8 space-y-2">
-            <p className="text-gray-400 line-through text-2xl">₹8999</p>
+            <p className="text-gray-400  text-2xl"> Worth   <span className="text-gray-400 line-through text-2xl">₹49,999</span></p>
             <p className="text-4xl md:text-5xl font-bold text-[#FFD700]">₹199</p>
             {/* <p className="text-green-400 text-lg">
               Extra ₹50 OFF with Promo 
             </p> */}
             <p className="text-red-400 text-lg">
-              Offer is limited for today only, don't miss the chance to grab this deal.
+              ⚡ Launch price expires today, don't miss the chance to grab this deal.
             </p>
           </div>
 
           {/* CTA BUTTON */}
-          <p className="text-sm text-gray-400 mt-4">
-            ⚡ Only 127 slots left at our Database for this sale, Hurry Up!
-          </p>
+          
           <button
             onClick={handleBuy}
             className="mt-8 bg-[#FFD700] text-black font-bold px-10 py-4 rounded-xl hover:scale-105 transition duration-300 shadow-lg"
@@ -51,14 +49,14 @@ const Hero = () => {
           <div className="flex flex-wrap  gap-6 mt-6 text-sm text-gray-400">
   <span>✔ Lifetime Access</span>
   <span>✔ Instant Digital Delivery</span>
-  <span>✔ Trusted by 9000+ Creators</span>
+  <span>✔ Trusted by 11,000+ Creators</span>
 </div>
           <p className="text-sm text-gray-400 mt-4">
             🔒 Secured by Razorpay (UPI/Card/Netbanking) • 📩 Instant Email Confirmation
           </p>
 
           <div className="mt-6 flex flex-wrap gap-3 text-xs text-gray-300">
-            <span className="px-3 py-1 rounded-full border border-white/20">9,000+ Digital Creators Joined</span>
+            <span className="px-3 py-1 rounded-full border border-white/20">11,000+ Digital Creators Joined</span>
             <span className="px-3 py-1 rounded-full border border-white/20">India-Focused Growth Library</span>
           </div>
         </div>

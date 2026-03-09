@@ -356,7 +356,7 @@ const [phone, setPhone] = useState("");
                 placeholder="Enter promo code"
                 value={promo}
                 onChange={(e) => setPromo(e.target.value)}
-                className="bg-black/30 border border-white/10 rounded-xl px-4 py-2 text-white outline-none focus:border-purple-500"
+                className="bg-black/30 border border-white/10 rounded-x l px-4 py-2 text-white outline-none focus:border-purple-500"
               />
               <button
                 onClick={applyPromo}
