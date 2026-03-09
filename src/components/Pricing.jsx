@@ -25,6 +25,8 @@ const [finalOverridePrice, setFinalOverridePrice] = useState(null);
   const [name, setName] = useState("");
 const [phone, setPhone] = useState("");
 const [city, setCity] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
+  const [errors, setErrors] = useState({ name: "", phone: "", city: "", email: "" });
 
   useEffect(() => {
     const card = sectionRef.current.querySelector(".pricing-card");
@@ -59,58 +61,110 @@ const [city, setCity] = useState("");
   }
 };
 
+  const validateInputs = (setStateErrors = false) => {
+    const newErrors = { name: "", phone: "", city: "", email: "" };
+
+    if (!name || name.trim().length < 2) {
+      newErrors.name = "Please enter your name (at least 2 characters).";
+    }
+
+    const phoneDigits = phone ? phone.replace(/\D/g, "") : "";
+    if (!phoneDigits) {
+      newErrors.phone = "Please enter your phone number.";
+    } else if (!/^\d{10}$/.test(phoneDigits)) {
+      newErrors.phone = "Phone must be exactly 10 digits.";
+    }
+
+    if (!city || city.trim().length === 0) {
+      newErrors.city = "Please enter your city.";
+    }
+
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!email || email.trim().length === 0) {
+      newErrors.email = "Please enter your email.";
+    } else if (!emailRegex.test(email)) {
+      newErrors.email = "Please enter a valid email address.";
+    }
+
+    const isValid = !newErrors.name && !newErrors.phone && !newErrors.city && !newErrors.email;
+
+    if (setStateErrors) setErrors(newErrors);
+
+    return isValid;
+  };
+
  const handlePayment = async () => {
-  if (!email) {
-  alert("Please enter your email before payment");
-  return;
-}
-// Step 1: Check if buyer already exists
-const checkResponse = await fetch(
-  `${import.meta.env.VITE_BACKEND_URL}/check-buyer`,
-  {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ email }),
+  // Validate inputs before proceeding
+  if (!validateInputs(true)) {
+    // On validation failure: show inline field errors only (no modal popup)
+    return;
   }
-);
+  setIsLoading(true);
+  try {
+// Step 1: Check if buyer already exists
+    const checkResponse = await fetch(
+      `${import.meta.env.VITE_BACKEND_URL}/check-buyer`,
+      {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email }),
+      }
+    );
 
-const checkData = await checkResponse.json();
+    if (!checkResponse.ok) {
+      throw new Error("Failed to check buyer status");
+    }
 
-if (checkData.exists) {
-  setModalMessage("You have already purchased this Library. Please check your email for access details.");
-return;
-}
+    const checkData = await checkResponse.json();
+
+    if (checkData.exists) {
+      setModalMessage("You have already purchased this Library. Please check your email for access details.");
+      return;
+    }
   // Create order from backend
-const orderResponse = await fetch(`${import.meta.env.VITE_BACKEND_URL}/create-order`, {
-  method: "POST",
-  headers: { "Content-Type": "application/json" },
-  body: JSON.stringify({
-  amount: finalPrice,
-  email,
-  name,
-  phone,
-  city,
-  isUpsell: false
-})
-});
+    const orderResponse = await fetch(`${import.meta.env.VITE_BACKEND_URL}/create-order`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        amount: finalPrice,
+        email,
+        name,
+        phone,
+        city,
+        isUpsell: false,
+      }),
+    });
 
-const order = await orderResponse.json();
+    if (!orderResponse.ok) {
+      throw new Error("Failed to create order");
+    }
 
-console.log(order); // debugging
+    const order = await orderResponse.json();
 
-if (!order.payment_session_id) {
-  alert("Payment initialization failed");
-  return;
-}
+    console.log(order); // debugging
 
-const cashfree = Cashfree({
-  mode: "production"
-});
+    if (!order.payment_session_id) {
+      throw new Error("Payment initialization failed");
+    }
 
-cashfree.checkout({
-  paymentSessionId: order.payment_session_id,
-  redirectTarget: "_self"
-});
+    if (!window.Cashfree) {
+      throw new Error("Payment provider unavailable");
+    }
+
+    const cashfree = Cashfree({
+      mode: import.meta.env.VITE_CASHFREE_MODE || "production",
+    });
+
+    cashfree.checkout({
+      paymentSessionId: order.payment_session_id,
+      redirectTarget: "_self",
+    });
+  } catch (err) {
+    console.error(err);
+    setModalMessage(err.message || "An error occurred while initiating payment.");
+  } finally {
+    setIsLoading(false);
+  }
 
 //   const options = {
 
@@ -234,36 +288,52 @@ cashfree.checkout({
   type="text"
   placeholder="Enter your name"
   value={name}
-  onChange={(e) => setName(e.target.value)}
+  onChange={(e) => {
+    setName(e.target.value);
+    if (errors.name) setErrors((s) => ({ ...s, name: "" }));
+  }}
   className="w-full bg-black/30 border border-white/10 rounded-xl px-4 py-3 text-white"
 />
+{errors.name && <p className="text-red-400 text-sm mt-2">{errors.name}</p>}
 
 <input
   type="tel"
   placeholder="Enter your phone"
   value={phone}
-  onChange={(e) => setPhone(e.target.value)}
+  onChange={(e) => {
+    setPhone(e.target.value);
+    if (errors.phone) setErrors((s) => ({ ...s, phone: "" }));
+  }}
   className="w-full bg-black/30 border border-white/10 rounded-xl px-4 py-3 text-white focus:border-purple-500"
 />
+{errors.phone && <p className="text-red-400 text-sm mt-2">{errors.phone}</p>}
 
 <input
   type="text"
   placeholder="Enter your city"
   value={city}
-  onChange={(e) => setCity(e.target.value)}
+  onChange={(e) => {
+    setCity(e.target.value);
+    if (errors.city) setErrors((s) => ({ ...s, city: "" }));
+  }}
   className="w-full bg-black/30 border border-white/10 rounded-xl px-4 py-3 text-white focus:border-purple-500"
 />
+{errors.city && <p className="text-red-400 text-sm mt-2">{errors.city}</p>}
 
 <input
   type="email"
   placeholder="Enter your email"
   value={email}
-  onChange={(e) => setEmail(e.target.value)}
+  onChange={(e) => {
+    setEmail(e.target.value);
+    if (errors.email) setErrors((s) => ({ ...s, email: "" }));
+  }}
   className="w-full bg-black/30 border border-white/10 rounded-xl px-4 py-3 text-white focus:border-purple-500"
 />
+{errors.email && <p className="text-red-400 text-sm mt-2">{errors.email}</p>}
   
 </div>
-          {/* {!discountApplied && (
+          {!discountApplied && (
             <div className="text-sm text-purple-400">
               (Optional) have you a promocode to apply? Enter above and click Apply.
             </div>
@@ -292,14 +362,16 @@ cashfree.checkout({
                 Apply
               </button>
             </div>
-          )} */}
+          )}
 
           {/* CTA Button */}
           <button
+  type="button"
   onClick={() => handlePayment()}
-  className="mt-8 w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:scale-105 active:scale-95 transition-all duration-300 px-8 py-4 rounded-2xl font-semibold shadow-lg hover:shadow-purple-500/30"
+  disabled={isLoading}
+  className="mt-8 w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:scale-105 active:scale-95 transition-all duration-300 px-8 py-4 rounded-2xl font-semibold shadow-lg hover:shadow-purple-500/30 disabled:opacity-50 disabled:cursor-not-allowed"
 >
-  Unlock Access Now
+  {isLoading ? "Processing..." : "Unlock Access Now"}
 </button>
 
 <ViewerCounter />
