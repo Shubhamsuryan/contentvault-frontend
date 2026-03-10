@@ -1,4 +1,5 @@
 import LibraryImage from "../assets/Library.png";
+import HeroCounter from "./herocounter";
 
 const Hero = () => {
   const handleBuy = () => {
@@ -33,9 +34,11 @@ const Hero = () => {
             {/* <p className="text-green-400 text-lg">
               Extra ₹50 OFF with Promo 
             </p> */}
+            <br />
             <p className="text-red-400 text-lg">
               ⚡ Launch price expires today, don't miss the chance to grab this deal.
             </p>
+            <HeroCounter />
           </div>
 
           {/* CTA BUTTON */}
@@ -44,7 +47,7 @@ const Hero = () => {
             onClick={handleBuy}
             className="mt-8 bg-[#FFD700] text-black font-bold px-10 py-4 rounded-xl hover:scale-105 transition duration-300 shadow-lg"
           >
-            Unlock the Library – ₹199
+            Unlock full Library – ₹199
           </button>
           <div className="flex flex-wrap  gap-6 mt-6 text-sm text-gray-400">
   <span>✔ Lifetime Access</span>
