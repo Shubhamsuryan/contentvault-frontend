@@ -16,7 +16,7 @@ const Objections = () => {
         "Yes. The Library is organized in structured folders, making it easy even for first-time users.",
     },
     {
-      question: "Is ₹49 really worth it?",
+      question: "Is ₹199 really worth it?",
       answer:
         "The total Library value exceeds ₹35,000+. Even selling a few assets can recover your investment.",
     },

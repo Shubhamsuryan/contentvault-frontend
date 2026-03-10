@@ -35,7 +35,7 @@ const PreviewSection = () => {
         </h2>
         <h6 className="text-xl md:text-xl font-bold text-center mb-16">
          Total Library Worth ₹40,500+      
-<span className="text-[#FFD700]">     Today Only (₹49)</span>
+<span className="text-[#FFD700]">     Today Only (₹199)</span>
         </h6>
 
         <div className="space-y-10">
