@@ -44,7 +44,7 @@ const Hero = () => {
             onClick={handleBuy}
             className="mt-8 bg-[#FFD700] text-black font-bold px-10 py-4 rounded-xl hover:scale-105 transition duration-300 shadow-lg"
           >
-            Get Instant Access
+            Unlock the Library – ₹199
           </button>
           <div className="flex flex-wrap  gap-6 mt-6 text-sm text-gray-400">
   <span>✔ Lifetime Access</span>
@@ -52,7 +52,7 @@ const Hero = () => {
   <span>✔ Trusted by 11,000+ Creators</span>
 </div>
           <p className="text-sm text-gray-400 mt-4">
-            🔒 Secured by Razorpay (UPI/Card/Netbanking) • 📩 Instant Email Confirmation
+            🔒 Secured by Cashfree.com (UPI/Card/Netbanking) • 📩 Instant Email Confirmation
           </p>
 
           <div className="mt-6 flex flex-wrap gap-3 text-xs text-gray-300">
