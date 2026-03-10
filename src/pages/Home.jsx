@@ -23,13 +23,16 @@ const Home = () => {
       <Features />
       <MonetizeChannels />
       <SocialProof />
+      <Pricing />
       <PreviewSection />
       <StorySection />
         <LibraryBreakdown />
+        <Pricing />
       {/* <SamplePreview />*/}
       <DemoSection /> 
       <Objections />
       <NotForEveryone />
+      <Pricing />
       <Reviews />
       <HowItWorks />
       <Guarantee />
