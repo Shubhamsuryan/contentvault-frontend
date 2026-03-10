@@ -25,7 +25,7 @@ const LibraryBreakdown = () => {
         </div>
 
         <p className="text-[#FFD700] font-bold text-xl mt-12">
-          Total Library Worth ₹40,500+ — Today Only ₹199
+          Total Library Worth ₹40,500+ — Today Only ₹49
         </p>
 
       </div>

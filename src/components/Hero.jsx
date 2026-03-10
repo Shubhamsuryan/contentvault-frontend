@@ -29,7 +29,7 @@ const Hero = () => {
           {/* PRICE BLOCK */}
           <div className="mt-8 space-y-2">
             <p className="text-gray-400  text-2xl"> Worth   <span className="text-gray-400 line-through text-2xl">₹49,999</span></p>
-            <p className="text-4xl md:text-5xl font-bold text-[#FFD700]">₹199</p>
+            <p className="text-4xl md:text-5xl font-bold text-[#FFD700]">₹49</p>
             {/* <p className="text-green-400 text-lg">
               Extra ₹50 OFF with Promo 
             </p> */}
