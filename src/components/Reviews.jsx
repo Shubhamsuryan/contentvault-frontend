@@ -51,7 +51,7 @@ const Reviews = () => {
     {
       name: "Rahul Desai",
       role: "Side Hustler",
-      text: "For ₹199, the value makes sense. No complaints so far.",
+      text: "For ₹29, the value makes sense. No complaints so far.",
       rating: "★★★★☆"
     },
   ];

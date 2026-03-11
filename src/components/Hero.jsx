@@ -30,7 +30,7 @@ const Hero = () => {
           {/* PRICE BLOCK */}
           <div className="mt-8 space-y-2">
             <p className="text-gray-400  text-2xl"> Worth   <span className="text-gray-400 line-through text-2xl">₹9,999</span></p>
-            <p className="text-4xl md:text-5xl font-bold text-[#FFD700]">₹199</p>
+            <p className="text-4xl md:text-5xl font-bold text-[#FFD700]">₹29</p>
             {/* <p className="text-green-400 text-lg">
               Extra ₹50 OFF with Promo 
             </p> */}
@@ -47,7 +47,7 @@ const Hero = () => {
             onClick={handleBuy}
             className="mt-8 bg-[#FFD700] text-black font-bold px-10 py-4 rounded-xl hover:scale-105 transition duration-300 shadow-lg"
           >
-            Unlock full Library – ₹199
+            Unlock full Library – ₹29
           </button>
           <div className="flex flex-wrap  gap-6 mt-6 text-sm text-gray-400">
   <span>✔ Lifetime Access</span>

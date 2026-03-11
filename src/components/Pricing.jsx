@@ -13,12 +13,12 @@ const Pricing = () => {
   const [discountApplied, setDiscountApplied] = useState(false);
 const [finalOverridePrice, setFinalOverridePrice] = useState(null);
   const originalPrice = 9999;
-  const salePrice = 199;
+  const salePrice = 29;
   const finalPrice =
   finalOverridePrice !== null
     ? finalOverridePrice
     : discountApplied
-    ? 199
+    ? 29
     : salePrice;
   const [email, setEmail] = useState("");
    const [modalMessage, setModalMessage] = useState("");
